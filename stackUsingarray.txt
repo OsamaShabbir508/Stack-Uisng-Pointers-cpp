@@ -1,0 +1,134 @@
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+using namespace std;
+class Stack
+{
+private:
+	int size;
+	int top;
+	int * s;
+public:
+	Stack()
+	{
+		size = 10;
+		top = -1;
+		s = new int[size];
+		for (size_t i = 0; i < size; i++)
+		{
+			s[i] = 0;
+		}
+	}
+	Stack(int size)
+	{
+		this->size = size;
+		this->top = -1;
+		s = new int[this->size];
+		for (size_t i = 0; i < this->size; i++)
+		{
+			s[i] = 0;
+		}
+
+	}
+	void Display()
+	{
+		if (top == -1)
+		{
+			cout << " Stack UnderFlow" << endl;
+		}
+		else
+		{
+			int x = top;
+			while (x != -1)
+			{
+				cout<< s[x]<<" " ;
+				x--;
+
+
+
+			}
+		}
+	}
+	void Push(int x)
+	{
+		if (this->top == this->size)
+		{
+			cout << " Stack OverFlow" << endl;
+
+		}
+		else
+		{
+			this->top++;
+			s[this->top] = x;
+		}
+	}
+	int Pop()
+	{
+		if (this->top == -1)
+		{
+			cout << " Stack Under Flow" << endl;
+		}
+		else
+		{
+			int x = this->top;
+			this->top--;
+			return s[x];
+			
+			
+		}
+	}
+	bool IsFull()
+	{
+		if (this->top == this->size)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+
+	}
+	bool IsEmpty()
+	{
+		if (this->top == -1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+
+	}
+
+	
+		
+	
+	
+
+
+};
+
+int main()
+{
+	Stack s(10);
+	s.Push(10);
+	s.Push(14);
+	s.Push(16);
+	s.Push(18);
+	s.Push(10);
+	s.Push(23);
+	s.Push(22);
+
+	cout << s.Pop() << endl;
+	s.Display();
+	int x;
+	cin >> x;
+
+
+
+
+    return 0;
+}
